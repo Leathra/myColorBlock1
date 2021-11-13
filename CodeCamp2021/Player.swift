@@ -18,11 +18,11 @@ class Player {
             let newPiece = Piece(size: "Large", color: myColor)
             pieces.append(newPiece)
         }
-        for _ in 0..<4 {
+        for _ in 0..<3 {
             let newPiece = Piece(size: "Medium", color: myColor)
             pieces.append(newPiece)
         }
-        for _ in 0..<4 {
+        for _ in 0..<3 {
             let newPiece = Piece(size: "Small", color: myColor)
             pieces.append(newPiece)
         }

@@ -12,15 +12,17 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let player = Player()
-        GameStore.shared.allPlayers.append(player)
-        for i in 0..<2 {
-            for j in 0..<2 {
-                GameStore.shared.allCells[i][j] = ["","",""]
-            }
-            //let myCell = ["", "", ""]
-            //GameStore.shared.allCells.append(myCell)
-        }
+        GameStore.shared.allPlayers = []
+        let player1 = Player(myColor: "Red")
+        GameStore.shared.allPlayers.append(player1)
+        let player2 = Player(myColor: "Cyan")
+        GameStore.shared.allPlayers.append(player2)
+        GameStore.shared.activePlayer = "Red"
+        GameStore.shared.allCells = [
+            ["","",""],["","",""],["","",""],
+            ["","",""],["","",""],["","",""],
+            ["","",""],["","",""],["","",""]
+        ]
         
 //        let pgr : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTouchUpInside:")
 //        pgr.delegate = self
@@ -28,11 +30,11 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return GameStore.shared.allCells.count
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GameStore.shared.allCells[section].count
+        return 3
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,7 +57,19 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
         let indexPath = IndexPath(row: row, section: section)
         let cell = self.collectionView.cellForItem(at: indexPath) as! GameBoardCell
         let piece = Piece(size: "Large", color: "Red")
-        cell.update(piece: piece, player: GameStore.shared.allPlayers[0], index: indexPath)
+        if GameStore.shared.activePlayer == "Red" {
+            //
+        } else {
+            piece.color = "Cyan"
+        }
+        if GameStore.shared.allCells[section*3+row][0] != "" {
+            if GameStore.shared.allCells[section*3+row][1] != "" {
+                piece.size = "Small"
+            } else{
+                piece.size = "Medium"
+            }
+        }
+        cell.update(piece: piece, index: indexPath)
         }
 //    @objc func handleTouchUpInside(gesture: UITapGestureRecognizer) {
 //        let p = gestureRecognizer.locationInView(self.collectionView)

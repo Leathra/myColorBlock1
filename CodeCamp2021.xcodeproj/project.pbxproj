@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5350F2E3273F5B93001816A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5350F2E2273F5B93001816A9 /* MainViewController.swift */; };
 		539C3C98273EC11B00B9DE8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C97273EC11B00B9DE8E /* AppDelegate.swift */; };
 		539C3C9A273EC11B00B9DE8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C99273EC11B00B9DE8E /* SceneDelegate.swift */; };
 		539C3C9C273EC11B00B9DE8E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C9B273EC11B00B9DE8E /* GameViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5350F2E2273F5B93001816A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		539C3C94273EC11B00B9DE8E /* CodeCamp2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeCamp2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539C3C97273EC11B00B9DE8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		539C3C99273EC11B00B9DE8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				539C3CC9273ED42C00B9DE8E /* PlayerViewCell.swift */,
 				539C3CCF273EE00600B9DE8E /* GameBoardCell.swift */,
 				539C3C9D273EC11B00B9DE8E /* Main.storyboard */,
+				5350F2E2273F5B93001816A9 /* MainViewController.swift */,
 				539C3CA0273EC11C00B9DE8E /* Assets.xcassets */,
 				539C3CA2273EC11C00B9DE8E /* LaunchScreen.storyboard */,
 				539C3CA5273EC11C00B9DE8E /* Info.plist */,
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				539C3CD0273EE00600B9DE8E /* GameBoardCell.swift in Sources */,
+				5350F2E3273F5B93001816A9 /* MainViewController.swift in Sources */,
 				539C3CC8273EC2D800B9DE8E /* Player.swift in Sources */,
 				539C3CCE273EDF3500B9DE8E /* Piece.swift in Sources */,
 				539C3CCC273ED8CF00B9DE8E /* GameStore.swift in Sources */,

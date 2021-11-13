@@ -10,11 +10,17 @@ import UIKit
 class GameStore {
     static let shared = GameStore()
     var allPlayers = [Player]()
-    var allCells = [[[String]]]()
+    var allCells = [[String]]()
+    var activePlayer = ""
+    var activePiece = 0
     
     //Switch to private init if singleton
     private init() {
-        self.allCells = [[[""],[""],[""]],[[""],[""],[""]],[[""],[""],[""]]]
+        self.allCells = [
+            ["","",""],["","",""],["","",""],
+            ["","",""],["","",""],["","",""],
+            ["","",""],["","",""],["","",""]
+        ]
         self.allPlayers = []
     }
 }
