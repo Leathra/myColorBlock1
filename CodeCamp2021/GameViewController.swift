@@ -24,6 +24,8 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
             ["","",""],["","",""],["","",""]
         ]
         
+        navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
+        
 //        let pgr : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTouchUpInside:")
 //        pgr.delegate = self
 //        self.collectionView.addGestureRecognizer(pgr)
@@ -70,6 +72,8 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
             }
         }
         cell.update(piece: piece, index: indexPath)
+        // Never Call collectionView.reloadData()
+        navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
         }
 //    @objc func handleTouchUpInside(gesture: UITapGestureRecognizer) {
 //        let p = gestureRecognizer.locationInView(self.collectionView)
