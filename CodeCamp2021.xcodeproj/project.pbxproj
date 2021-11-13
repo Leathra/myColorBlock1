@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		539C3C98273EC11B00B9DE8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C97273EC11B00B9DE8E /* AppDelegate.swift */; };
 		539C3C9A273EC11B00B9DE8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C99273EC11B00B9DE8E /* SceneDelegate.swift */; };
-		539C3C9C273EC11B00B9DE8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C9B273EC11B00B9DE8E /* ViewController.swift */; };
+		539C3C9C273EC11B00B9DE8E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3C9B273EC11B00B9DE8E /* GameViewController.swift */; };
 		539C3C9F273EC11B00B9DE8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539C3C9D273EC11B00B9DE8E /* Main.storyboard */; };
 		539C3CA1273EC11C00B9DE8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 539C3CA0273EC11C00B9DE8E /* Assets.xcassets */; };
 		539C3CA4273EC11C00B9DE8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 539C3CA2273EC11C00B9DE8E /* LaunchScreen.storyboard */; };
 		539C3CAF273EC11C00B9DE8E /* CodeCamp2021Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CAE273EC11C00B9DE8E /* CodeCamp2021Tests.swift */; };
 		539C3CB9273EC11C00B9DE8E /* CodeCamp2021UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CB8273EC11C00B9DE8E /* CodeCamp2021UITests.swift */; };
 		539C3CBB273EC11C00B9DE8E /* CodeCamp2021UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CBA273EC11C00B9DE8E /* CodeCamp2021UITestsLaunchTests.swift */; };
+		539C3CC8273EC2D800B9DE8E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CC7273EC2D800B9DE8E /* Player.swift */; };
+		539C3CCA273ED42C00B9DE8E /* PlayerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CC9273ED42C00B9DE8E /* PlayerViewCell.swift */; };
+		539C3CCC273ED8CF00B9DE8E /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CCB273ED8CF00B9DE8E /* GameStore.swift */; };
+		539C3CCE273EDF3500B9DE8E /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CCD273EDF3500B9DE8E /* Piece.swift */; };
+		539C3CD0273EE00600B9DE8E /* GameBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C3CCF273EE00600B9DE8E /* GameBoardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,7 @@
 		539C3C94273EC11B00B9DE8E /* CodeCamp2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeCamp2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539C3C97273EC11B00B9DE8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		539C3C99273EC11B00B9DE8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		539C3C9B273EC11B00B9DE8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		539C3C9B273EC11B00B9DE8E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		539C3C9E273EC11B00B9DE8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		539C3CA0273EC11C00B9DE8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		539C3CA3273EC11C00B9DE8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,11 @@
 		539C3CB4273EC11C00B9DE8E /* CodeCamp2021UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeCamp2021UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		539C3CB8273EC11C00B9DE8E /* CodeCamp2021UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCamp2021UITests.swift; sourceTree = "<group>"; };
 		539C3CBA273EC11C00B9DE8E /* CodeCamp2021UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCamp2021UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		539C3CC7273EC2D800B9DE8E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		539C3CC9273ED42C00B9DE8E /* PlayerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewCell.swift; sourceTree = "<group>"; };
+		539C3CCB273ED8CF00B9DE8E /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		539C3CCD273EDF3500B9DE8E /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		539C3CCF273EE00600B9DE8E /* GameBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +111,12 @@
 			children = (
 				539C3C97273EC11B00B9DE8E /* AppDelegate.swift */,
 				539C3C99273EC11B00B9DE8E /* SceneDelegate.swift */,
-				539C3C9B273EC11B00B9DE8E /* ViewController.swift */,
+				539C3C9B273EC11B00B9DE8E /* GameViewController.swift */,
+				539C3CCB273ED8CF00B9DE8E /* GameStore.swift */,
+				539C3CC7273EC2D800B9DE8E /* Player.swift */,
+				539C3CCD273EDF3500B9DE8E /* Piece.swift */,
+				539C3CC9273ED42C00B9DE8E /* PlayerViewCell.swift */,
+				539C3CCF273EE00600B9DE8E /* GameBoardCell.swift */,
 				539C3C9D273EC11B00B9DE8E /* Main.storyboard */,
 				539C3CA0273EC11C00B9DE8E /* Assets.xcassets */,
 				539C3CA2273EC11C00B9DE8E /* LaunchScreen.storyboard */,
@@ -258,7 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				539C3C9C273EC11B00B9DE8E /* ViewController.swift in Sources */,
+				539C3CD0273EE00600B9DE8E /* GameBoardCell.swift in Sources */,
+				539C3CC8273EC2D800B9DE8E /* Player.swift in Sources */,
+				539C3CCE273EDF3500B9DE8E /* Piece.swift in Sources */,
+				539C3CCC273ED8CF00B9DE8E /* GameStore.swift in Sources */,
+				539C3C9C273EC11B00B9DE8E /* GameViewController.swift in Sources */,
+				539C3CCA273ED42C00B9DE8E /* PlayerViewCell.swift in Sources */,
 				539C3C98273EC11B00B9DE8E /* AppDelegate.swift in Sources */,
 				539C3C9A273EC11B00B9DE8E /* SceneDelegate.swift in Sources */,
 			);
@@ -439,6 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3X5A6GM97;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeCamp2021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -466,6 +487,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3X5A6GM97;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeCamp2021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
