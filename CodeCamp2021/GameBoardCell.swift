@@ -20,19 +20,17 @@ class GameBoardCell: UICollectionViewCell {
                 if me[0] == "" {
                     largePiece.image = UIImage(named: "largeRed")
                     GameStore.shared.allCells[index.section*3 + index.row][0] = GameStore.shared.activePlayer
-                    GameStore.shared.allPlayers[0].pieces.remove(at: 0)
-                    GameStore.shared.activePlayer = "Cyan"
+                    GameStore.shared.allPlayers[0].largePieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //largePiece.image = UIImage(systemName: "star")
                 }
             } else if piece.size == "Medium" {
                 if me[1] == "" {
-    //                let firstMediumPiece = GameStore.shared.allPlayers[0].pieces.firstIndex { Piece in
-    //                }
                     mediumPiece.image = UIImage(named: "mediumRed")
                     GameStore.shared.allCells[index.section*3 + index.row][1] = GameStore.shared.activePlayer
-                    //Gamestore.Shared.allPlayers[0].pieces.remove(at: firstMediumPiece)
-                    GameStore.shared.activePlayer = "Cyan"
+                    GameStore.shared.allPlayers[0].mediumPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //mediumPiece.image = UIImage(systemName: "star")
                 }
@@ -40,8 +38,8 @@ class GameBoardCell: UICollectionViewCell {
                 if me[2] == "" {
                     smallPiece.image = UIImage(named: "smallRed")
                     GameStore.shared.allCells[index.section*3 + index.row][2] = GameStore.shared.activePlayer
-                    GameStore.shared.allPlayers[0].pieces.popLast()
-                    GameStore.shared.activePlayer = "Cyan"
+                    GameStore.shared.allPlayers[0].smallPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //smallPiece.image = UIImage(systemName: "star")
                 }
@@ -51,19 +49,17 @@ class GameBoardCell: UICollectionViewCell {
                 if me[0] == "" {
                     largePiece.image = UIImage(named: "largeCyan")
                     GameStore.shared.allCells[index.section*3 + index.row][0] = GameStore.shared.activePlayer
-                    GameStore.shared.allPlayers[1].pieces.remove(at: 0)
-                    GameStore.shared.activePlayer = "Red"
+                    GameStore.shared.allPlayers[1].largePieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //largePiece.image = UIImage(systemName: "star")
                 }
             } else if piece.size == "Medium" {
                 if me[1] == "" {
-    //                let firstMediumPiece = GameStore.shared.allPlayers[0].pieces.firstIndex { Piece in
-    //                }
                     mediumPiece.image = UIImage(named: "mediumCyan")
                     GameStore.shared.allCells[index.section*3 + index.row][1] = GameStore.shared.activePlayer
-                    //Gamestore.Shared.allPlayers[1].pieces.remove(at: firstMediumPiece)
-                    GameStore.shared.activePlayer = "Red"
+                    GameStore.shared.allPlayers[1].mediumPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //mediumPiece.image = UIImage(systemName: "star")
                 }
@@ -71,8 +67,8 @@ class GameBoardCell: UICollectionViewCell {
                 if me[2] == "" {
                     smallPiece.image = UIImage(named: "smallCyan")
                     GameStore.shared.allCells[index.section*3 + index.row][2] = GameStore.shared.activePlayer
-                    GameStore.shared.allPlayers[1].pieces.popLast()
-                    GameStore.shared.activePlayer = "Red"
+                    GameStore.shared.allPlayers[1].smallPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
                 } else {
                     //smallPiece.image = UIImage(systemName: "star")
                 }

@@ -122,17 +122,57 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="pieceSelector" id="7nK-pM-9NH" customClass="PlayerViewCell" customModule="CodeCamp2021" customModuleProvider="target">
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="playerViewCell" id="7nK-pM-9NH" customClass="PlayerViewCell" customModule="CodeCamp2021" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="130" width="414" height="40"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="mok-NU-b4s">
+                                    <rect key="frame" x="29" y="4.5" width="356" height="31"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSa-Yg-Hq2">
+                                            <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Large"/>
+                                            <connections>
+                                                <action selector="LargeButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="wwj-9W-lXZ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N42-4s-27g">
+                                            <rect key="frame" x="140" y="0.0" width="76" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Medium"/>
+                                            <connections>
+                                                <action selector="MediumButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="Dhj-Eh-Chm"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as4-Kl-xsA">
+                                            <rect key="frame" x="280" y="0.0" width="76" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Small"/>
+                                            <connections>
+                                                <action selector="SmallButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="bQk-XO-bly"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.29019607843137252" green="0.094117647058823528" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="mok-NU-b4s" firstAttribute="centerX" secondItem="7nK-pM-9NH" secondAttribute="centerX" id="mxW-b8-vzb"/>
+                                <constraint firstItem="mok-NU-b4s" firstAttribute="centerY" secondItem="7nK-pM-9NH" secondAttribute="centerY" id="rpe-vK-mOZ"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="largeButton" destination="oSa-Yg-Hq2" id="AYv-F2-fxn"/>
+                                <outlet property="mediumButton" destination="N42-4s-27g" id="QmC-Ho-QOb"/>
+                                <outlet property="smallButton" destination="as4-Kl-xsA" id="beB-9g-Sg4"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="3kS-GL-7Nv" id="9FM-b7-Dpd"/>
                             <outlet property="delegate" destination="3kS-GL-7Nv" id="LrU-QH-0r7"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="iDs-CR-fes"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="iDs-CR-fes"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSO-YY-fF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Kwv-2S-kGw">
@@ -141,45 +181,6 @@
                 </imageView>
             </objects>
             <point key="canvasLocation" x="737.68115942028987" y="20.758928571428569"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="oa1-aw-vxE">
-            <objects>
-                <viewController id="FEU-7u-QXe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o2m-6e-aJa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-fz-Y6u">
-                                <rect key="frame" x="9" y="81" width="133" height="133"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="lMm-Rd-P9f" kind="embed" id="HvD-H1-tUS"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0FB-57-IZp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5i-uV-cfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1540.5797101449277" y="5.3571428571428568"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="B3f-l7-QvS">
-            <objects>
-                <viewController id="lMm-Rd-P9f" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uhs-bS-mbX">
-                        <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rIL-7g-1bd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hcO-Tb-33W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2450" y="-63.28125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1MQ-XY-B6N">

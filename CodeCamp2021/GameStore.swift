@@ -12,7 +12,7 @@ class GameStore {
     var allPlayers = [Player]()
     var allCells = [[String]]()
     var activePlayer = ""
-    var activePiece = 0
+    var activePiece = ""
     
     //Switch to private init if singleton
     private init() {
@@ -22,5 +22,15 @@ class GameStore {
             ["","",""],["","",""],["","",""]
         ]
         self.allPlayers = []
+    }
+    
+    func updateActivePlayer() { // red, cyan, yellow, purple
+        //if varying multiplayer enabled, cycle through allPlayers and get colors
+        //else:
+        if self.activePlayer == "Red" {
+            self.activePlayer = "Cyan"
+        } else if self.activePlayer == "Cyan" {
+            self.activePlayer = "Red"
+        }
     }
 }

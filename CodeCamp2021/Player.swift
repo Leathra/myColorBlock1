@@ -8,23 +8,27 @@
 import UIKit
 
 class Player {
-    var pieces: [Piece]
+    var largePieces: [Piece]
+    var mediumPieces: [Piece]
+    var smallPieces: [Piece]
     var color: String
     
     init (myColor: String) {
-        self.pieces = []
+        self.largePieces = []
+        self.mediumPieces = []
+        self.smallPieces = []
         self.color = myColor
         for _ in 0..<3 {
             let newPiece = Piece(size: "Large", color: myColor)
-            pieces.append(newPiece)
+            largePieces.append(newPiece)
         }
         for _ in 0..<3 {
             let newPiece = Piece(size: "Medium", color: myColor)
-            pieces.append(newPiece)
+            mediumPieces.append(newPiece)
         }
         for _ in 0..<3 {
             let newPiece = Piece(size: "Small", color: myColor)
-            pieces.append(newPiece)
+            smallPieces.append(newPiece)
         }
     }
     
