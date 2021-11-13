@@ -26,11 +26,30 @@ class GameStore {
     
     func updateActivePlayer() { // red, cyan, yellow, purple
         //if varying multiplayer enabled, cycle through allPlayers and get colors
-        //else:
-        if self.activePlayer == "Red" {
-            self.activePlayer = "Cyan"
-        } else if self.activePlayer == "Cyan" {
-            self.activePlayer = "Red"
+        if allPlayers.count == 4 {
+            if self.activePlayer == "Red" {
+                self.activePlayer = "Cyan"
+            } else if self.activePlayer == "Cyan" {
+                self.activePlayer = "Yellow"
+            } else if self.activePlayer == "Yellow" {
+                self.activePlayer = "Purple"
+            } else if self.activePlayer == "Purple" {
+                self.activePlayer = "Red"
+            }
+        } else if allPlayers.count == 3 {
+            if self.activePlayer == "Red" {
+                self.activePlayer = "Cyan"
+            } else if self.activePlayer == "Cyan" {
+                self.activePlayer = "Yellow"
+            } else if self.activePlayer == "Yellow" {
+                self.activePlayer = "Red"
+            }
+        } else if allPlayers.count == 2 {
+            if self.activePlayer == "Red" {
+                self.activePlayer = "Cyan"
+            } else if self.activePlayer == "Cyan" {
+                self.activePlayer = "Red"
+            }
         }
     }
 }

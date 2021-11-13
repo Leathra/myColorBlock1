@@ -12,18 +12,8 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GameStore.shared.allPlayers = []
-        let player1 = Player(myColor: "Red")
-        GameStore.shared.allPlayers.append(player1)
-        let player2 = Player(myColor: "Cyan")
-        GameStore.shared.allPlayers.append(player2)
-        GameStore.shared.activePlayer = "Red"
-        GameStore.shared.allCells = [
-            ["","",""],["","",""],["","",""],
-            ["","",""],["","",""],["","",""],
-            ["","",""],["","",""],["","",""]
-        ]
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
     }
 
@@ -48,8 +38,8 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
         if (kind == UICollectionView.elementKindSectionFooter){
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "playerViewCell", for: indexPath) as! PlayerViewCell
             if (indexPath.section == 2) {
-                    // Customize footerView here
-                    return footerView
+                //footerView.largeButton.imageView?.image = UIImage(named: "largeButton")
+                return footerView
             }
             footerView.isHidden = true
             let myHeight = footerView.heightAnchor.constraint(equalToConstant: 10)
@@ -88,7 +78,7 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
                     mySize = GameStore.shared.activePiece
                 }
             }
-        } else {
+        } else if myColor == "Cyan"{
             if GameStore.shared.activePiece == "Large"{
                 if GameStore.shared.allPlayers[1].largePieces.isEmpty{
                     
@@ -108,6 +98,46 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
                     mySize = GameStore.shared.activePiece
                 }
             }
+        } else if myColor == "Yellow"{
+            if GameStore.shared.activePiece == "Large"{
+                if GameStore.shared.allPlayers[2].largePieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            } else if GameStore.shared.activePiece == "Medium"{
+                if GameStore.shared.allPlayers[2].mediumPieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            } else if GameStore.shared.activePiece == "Small"{
+                if GameStore.shared.allPlayers[2].smallPieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            }
+        } else if myColor == "Purple"{
+            if GameStore.shared.activePiece == "Large"{
+                if GameStore.shared.allPlayers[3].largePieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            } else if GameStore.shared.activePiece == "Medium"{
+                if GameStore.shared.allPlayers[3].mediumPieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            } else if GameStore.shared.activePiece == "Small"{
+                if GameStore.shared.allPlayers[3].smallPieces.isEmpty{
+                    
+                } else{
+                    mySize = GameStore.shared.activePiece
+                }
+            }
         }
         if mySize != "" {
             let piece = Piece(size: mySize, color: myColor)
@@ -120,6 +150,19 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
 //            }
             cell.update(piece: piece, index: indexPath)
             // Never Call collectionView.reloadData()
+            if GameStore.shared.activePlayer == "Red" {
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
+                navigationController?.navigationBar.titleTextAttributes = textAttributes
+            } else if GameStore.shared.activePlayer == "Cyan" {
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.0, green: 0.91372, blue: 1, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
+                navigationController?.navigationBar.titleTextAttributes = textAttributes
+            } else if GameStore.shared.activePlayer == "Yellow" {
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 1, green: 0.88235, blue: 0, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
+                navigationController?.navigationBar.titleTextAttributes = textAttributes
+            } else if GameStore.shared.activePlayer == "Purple" {
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.29019, green: 0.09411, blue: 0.5098, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
+                navigationController?.navigationBar.titleTextAttributes = textAttributes
+            }
             navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
         }
     }

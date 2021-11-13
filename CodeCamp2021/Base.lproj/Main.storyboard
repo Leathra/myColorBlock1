@@ -28,7 +28,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="navButton1" imagePlacement="bottom"/>
                                 <connections>
-                                    <segue destination="3kS-GL-7Nv" kind="show" id="nQ8-mD-8ZV"/>
+                                    <segue destination="3kS-GL-7Nv" kind="show" identifier="twoPlayers" id="nQ8-mD-8ZV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-HF-2rm">
@@ -36,12 +36,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="threePlayerButton"/>
+                                <connections>
+                                    <segue destination="3kS-GL-7Nv" kind="show" identifier="threePlayers" id="lWh-je-e4U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-EP-PTE">
                                 <rect key="frame" x="109" y="669" width="192" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="fourPlayerButton"/>
+                                <connections>
+                                    <segue destination="3kS-GL-7Nv" kind="show" identifier="fourPlayers" id="z9u-if-Sh4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v4x-ni-fa2"/>
@@ -127,28 +133,28 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="mok-NU-b4s">
-                                    <rect key="frame" x="29" y="4.5" width="356" height="31"/>
+                                    <rect key="frame" x="14.5" y="1.5" width="385" height="37"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSa-Yg-Hq2">
-                                            <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="79" height="37"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Large"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="largeButton"/>
                                             <connections>
                                                 <action selector="LargeButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="wwj-9W-lXZ"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N42-4s-27g">
-                                            <rect key="frame" x="140" y="0.0" width="76" height="31"/>
+                                            <rect key="frame" x="143" y="0.0" width="100" height="37"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Medium"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="mediumButton"/>
                                             <connections>
                                                 <action selector="MediumButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="Dhj-Eh-Chm"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as4-Kl-xsA">
-                                            <rect key="frame" x="280" y="0.0" width="76" height="31"/>
+                                            <rect key="frame" x="307" y="0.0" width="78" height="37"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Small"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="smallButton"/>
                                             <connections>
                                                 <action selector="SmallButtonPressed:" destination="7nK-pM-9NH" eventType="touchUpInside" id="bQk-XO-bly"/>
                                             </connections>
@@ -172,7 +178,7 @@
                             <outlet property="delegate" destination="3kS-GL-7Nv" id="LrU-QH-0r7"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="iDs-CR-fes"/>
+                    <navigationItem key="navigationItem" id="iDs-CR-fes"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSO-YY-fF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Kwv-2S-kGw">
@@ -201,10 +207,16 @@
             <point key="canvasLocation" x="-1075.3623188405797" y="21.428571428571427"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nQ8-mD-8ZV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="fourPlayerButton" width="174" height="66"/>
         <image name="gameboardBkg" width="4813" height="10167"/>
+        <image name="largeButton" width="55" height="23"/>
+        <image name="mediumButton" width="76" height="23"/>
         <image name="navButton1" width="171" height="62"/>
+        <image name="smallButton" width="54" height="23"/>
         <image name="threePlayerButton" width="171" height="62"/>
         <image name="welcomScreenBkg" width="4688" height="10150"/>
         <systemColor name="systemBackgroundColor">

@@ -73,6 +73,64 @@ class GameBoardCell: UICollectionViewCell {
                     //smallPiece.image = UIImage(systemName: "star")
                 }
             }
+        } else if GameStore.shared.activePlayer == "Yellow" {
+            if piece.size == "Large" {
+                if me[0] == "" {
+                    largePiece.image = UIImage(named: "largeYellow")
+                    GameStore.shared.allCells[index.section*3 + index.row][0] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[2].largePieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //largePiece.image = UIImage(systemName: "star")
+                }
+            } else if piece.size == "Medium" {
+                if me[1] == "" {
+                    mediumPiece.image = UIImage(named: "mediumYellow")
+                    GameStore.shared.allCells[index.section*3 + index.row][1] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[2].mediumPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //mediumPiece.image = UIImage(systemName: "star")
+                }
+            } else if piece.size == "Small" {
+                if me[2] == "" {
+                    smallPiece.image = UIImage(named: "smallYellow")
+                    GameStore.shared.allCells[index.section*3 + index.row][2] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[2].smallPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //smallPiece.image = UIImage(systemName: "star")
+                }
+            }
+        } else if GameStore.shared.activePlayer == "Purple" {
+            if piece.size == "Large" {
+                if me[0] == "" {
+                    largePiece.image = UIImage(named: "largePurple")
+                    GameStore.shared.allCells[index.section*3 + index.row][0] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[3].largePieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //largePiece.image = UIImage(systemName: "star")
+                }
+            } else if piece.size == "Medium" {
+                if me[1] == "" {
+                    mediumPiece.image = UIImage(named: "mediumPurple")
+                    GameStore.shared.allCells[index.section*3 + index.row][1] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[3].mediumPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //mediumPiece.image = UIImage(systemName: "star")
+                }
+            } else if piece.size == "Small" {
+                if me[2] == "" {
+                    smallPiece.image = UIImage(named: "smallPurple")
+                    GameStore.shared.allCells[index.section*3 + index.row][2] = GameStore.shared.activePlayer
+                    GameStore.shared.allPlayers[3].smallPieces.remove(at: 0)
+                    GameStore.shared.updateActivePlayer()
+                } else {
+                    //smallPiece.image = UIImage(systemName: "star")
+                }
+            }
         }
     }
 }
