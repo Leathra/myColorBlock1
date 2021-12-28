@@ -9,6 +9,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet var HowToButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        HowToButton.setImage(UIImage(named: "howToPlay-2"), for: .normal) 
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "twoPlayers":
@@ -53,6 +60,9 @@ class MainViewController: UIViewController {
                 ["","",""],["","",""],["","",""],
                 ["","",""],["","",""],["","",""]
             ]
+        case "HowToPlay":
+            break
+            
         default:
             preconditionFailure("Unexpected segue identifier.")
         }

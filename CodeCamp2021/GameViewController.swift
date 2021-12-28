@@ -12,8 +12,8 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
     }
 
@@ -149,22 +149,198 @@ class GameViewController: UICollectionViewController, UIGestureRecognizerDelegat
 //                }
 //            }
             cell.update(piece: piece, index: indexPath)
+            Endgame()
             // Never Call collectionView.reloadData()
             if GameStore.shared.activePlayer == "Red" {
-                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
-                navigationController?.navigationBar.titleTextAttributes = textAttributes
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.729411, green: 0.152941, blue: 0.17647, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)]
+                navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
             } else if GameStore.shared.activePlayer == "Cyan" {
-                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.0, green: 0.91372, blue: 1, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
-                navigationController?.navigationBar.titleTextAttributes = textAttributes
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.0, green: 0.91372, blue: 1, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)]
+                navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
             } else if GameStore.shared.activePlayer == "Yellow" {
-                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 1, green: 0.88235, blue: 0, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
-                navigationController?.navigationBar.titleTextAttributes = textAttributes
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 1, green: 0.88235, blue: 0, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)]
+                navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
             } else if GameStore.shared.activePlayer == "Purple" {
-                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.29019, green: 0.09411, blue: 0.5098, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor.white]
-                navigationController?.navigationBar.titleTextAttributes = textAttributes
+                let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.29019, green: 0.09411, blue: 0.5098, alpha: 1), NSAttributedString.Key.backgroundColor:UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)]
+                navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
             }
             navigationItem.title = "\(GameStore.shared.activePlayer)'s Turn"
         }
+    }
+    
+    func Endgame() {
+        //Check for three in one
+        for i in 0...8 {
+            let currentCell = GameStore.shared.allCells[i]
+            if ((currentCell[0] == currentCell[1]) && (currentCell[0] == currentCell[2]) && currentCell[0] != "") {
+                //Alert("Red Wins!")
+                DisplayEndgameAlert(winner: currentCell[0])
+                return
+            }
+        }
+        //Check for rows & columns
+        for i in 0...2 {
+            //Check same Size rows
+            if ((GameStore.shared.allCells[i*3][0] != "") &&
+                (GameStore.shared.allCells[i*3][0] == GameStore.shared.allCells[(i*3)+1][0]) &&
+                (GameStore.shared.allCells[i*3][0] == GameStore.shared.allCells[(i*3)+2][0])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i*3][0])
+                return
+            }
+            if ((GameStore.shared.allCells[i*3][1] != "") &&
+                (GameStore.shared.allCells[i*3][1] == GameStore.shared.allCells[(i*3)+1][1]) &&
+                (GameStore.shared.allCells[i*3][1] == GameStore.shared.allCells[(i*3)+2][1])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i*3][1])
+                return
+            }
+            if ((GameStore.shared.allCells[i*3][2] != "") &&
+                (GameStore.shared.allCells[i*3][2] == GameStore.shared.allCells[(i*3)+1][2]) &&
+                (GameStore.shared.allCells[i*3][2] == GameStore.shared.allCells[(i*3)+2][2])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i*3][2])
+                return
+            }
+            
+            //Check decreasing Size rows
+            if ((GameStore.shared.allCells[i*3][0] != "") &&
+                (GameStore.shared.allCells[i*3][0] == GameStore.shared.allCells[(i*3)+1][1]) &&
+                (GameStore.shared.allCells[i*3][0] == GameStore.shared.allCells[(i*3)+2][2])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i*3][0])
+                return
+            }
+            
+            //Check increasing Size rows
+            if ((GameStore.shared.allCells[i*3][2] != "") &&
+                (GameStore.shared.allCells[i*3][2] == GameStore.shared.allCells[(i*3)+1][1]) &&
+                (GameStore.shared.allCells[i*3][2] == GameStore.shared.allCells[(i*3)+2][0])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i*3][2])
+                return
+            }
+
+            //Check same Size Columns
+            if ((GameStore.shared.allCells[i][0] != "") &&
+                (GameStore.shared.allCells[i][0] == GameStore.shared.allCells[i+3][0]) &&
+                (GameStore.shared.allCells[i][0] == GameStore.shared.allCells[i+6][0])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i][0])
+                return
+            }
+            if ((GameStore.shared.allCells[i][1] != "") &&
+                (GameStore.shared.allCells[i][1] == GameStore.shared.allCells[i+3][1]) &&
+                (GameStore.shared.allCells[i][1] == GameStore.shared.allCells[i+6][1])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i][1])
+                return
+            }
+            if ((GameStore.shared.allCells[i][2] != "") &&
+                (GameStore.shared.allCells[i][2] == GameStore.shared.allCells[i+3][2]) &&
+                (GameStore.shared.allCells[i][2] == GameStore.shared.allCells[i+6][2])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i][2])
+                return
+            }
+            
+            //Check decreasing Size columns
+            if ((GameStore.shared.allCells[i][0] != "") &&
+                (GameStore.shared.allCells[i][0] == GameStore.shared.allCells[i+3][1]) &&
+                (GameStore.shared.allCells[i][0] == GameStore.shared.allCells[i+6][2])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i][0])
+                return
+            }
+            
+            //Check increasing Size columns
+            if ((GameStore.shared.allCells[i][2] != "") &&
+                (GameStore.shared.allCells[i][2] == GameStore.shared.allCells[i+3][1]) &&
+                (GameStore.shared.allCells[i][2] == GameStore.shared.allCells[i+6][0])) {
+                DisplayEndgameAlert(winner: GameStore.shared.allCells[i][2])
+                return
+            }
+        }
+        
+        //Same Size Diagonals Downward
+        if ((GameStore.shared.allCells[0][0] != "") &&
+            (GameStore.shared.allCells[0][0] == GameStore.shared.allCells[4][0]) &&
+            (GameStore.shared.allCells[0][0] == GameStore.shared.allCells[8][0])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[0][0])
+            return
+        }
+        if ((GameStore.shared.allCells[0][1] != "") &&
+            (GameStore.shared.allCells[0][1] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[0][1] == GameStore.shared.allCells[8][1])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[0][1])
+            return
+        }
+        if ((GameStore.shared.allCells[0][2] != "") &&
+            (GameStore.shared.allCells[0][2] == GameStore.shared.allCells[4][2]) &&
+            (GameStore.shared.allCells[0][2] == GameStore.shared.allCells[8][2])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[0][2])
+            return
+        }
+        
+        //Same Size Diagonals Upward
+        if ((GameStore.shared.allCells[2][0] != "") &&
+            (GameStore.shared.allCells[2][0] == GameStore.shared.allCells[4][0]) &&
+            (GameStore.shared.allCells[2][0] == GameStore.shared.allCells[6][0])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[2][0])
+            return
+        }
+        if ((GameStore.shared.allCells[2][1] != "") &&
+            (GameStore.shared.allCells[2][1] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[2][1] == GameStore.shared.allCells[6][1])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[2][1])
+            return
+        }
+        if ((GameStore.shared.allCells[2][2] != "") &&
+            (GameStore.shared.allCells[2][2] == GameStore.shared.allCells[4][2]) &&
+            (GameStore.shared.allCells[2][2] == GameStore.shared.allCells[6][2])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[2][2])
+            return
+        }
+        
+        //Increasing Size Diagonals Downward
+        if ((GameStore.shared.allCells[0][0] != "") &&
+            (GameStore.shared.allCells[0][0] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[0][0] == GameStore.shared.allCells[8][2])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[0][0])
+            return
+        }
+        
+        //Decreasing Size Diagonals Downward
+        if ((GameStore.shared.allCells[0][2] != "") &&
+            (GameStore.shared.allCells[0][2] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[0][2] == GameStore.shared.allCells[8][0])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[0][2])
+            return
+        }
+        
+        //Increasing Size Diagonals Upward
+        if ((GameStore.shared.allCells[2][0] != "") &&
+            (GameStore.shared.allCells[2][0] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[2][0] == GameStore.shared.allCells[6][2])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[2][0])
+            return
+        }
+        
+        //Decreasing Size Diagonals Upward
+        if ((GameStore.shared.allCells[2][2] != "") &&
+            (GameStore.shared.allCells[2][2] == GameStore.shared.allCells[4][1]) &&
+            (GameStore.shared.allCells[2][2] == GameStore.shared.allCells[6][0])) {
+            DisplayEndgameAlert(winner: GameStore.shared.allCells[2][2])
+            return
+        }
+    }
+    
+    func DisplayEndgameAlert(winner: String) {
+        let alert = UIAlertController(title: "\(winner) Wins", message: "Play Again?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {_ in
+            for player in GameStore.shared.allPlayers {
+                player.largePieces = [Piece]()
+                player.mediumPieces = [Piece]()
+                player.smallPieces = [Piece]()
+            }
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 

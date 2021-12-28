@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NrO-sS-Zol">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -49,21 +48,60 @@
                                     <segue destination="3kS-GL-7Nv" kind="show" identifier="fourPlayers" id="z9u-if-Sh4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-kU-Bwy">
+                                <rect key="frame" x="123" y="779" width="165" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <segue destination="rlL-x1-BRs" kind="showDetail" identifier="HowToPlay" id="jCd-Nn-bkq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v4x-ni-fa2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="JeA-ZD-F0F"/>
+                    <connections>
+                        <outlet property="HowToButton" destination="Xdl-kU-Bwy" id="e5I-RS-Mcg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubh-SY-00N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-165.21739130434784" y="21.428571428571427"/>
         </scene>
+        <!--How To Play View Controller-->
+        <scene sceneID="CYi-Aq-y7f">
+            <objects>
+                <viewController id="rlL-x1-BRs" customClass="HowToPlayViewController" customModule="CodeCamp2021" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFill" id="Sti-2d-Kev">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howToPlay-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-7r-DY2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Auc-st-QjG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Auc-st-QjG" firstAttribute="bottom" secondItem="Tct-7r-DY2" secondAttribute="bottom" id="6Jt-EL-Inz"/>
+                            <constraint firstItem="Tct-7r-DY2" firstAttribute="leading" secondItem="Auc-st-QjG" secondAttribute="leading" id="7cd-xD-MCU"/>
+                            <constraint firstItem="Tct-7r-DY2" firstAttribute="top" secondItem="Auc-st-QjG" secondAttribute="top" id="W2L-Zc-gNy"/>
+                            <constraint firstItem="Auc-st-QjG" firstAttribute="trailing" secondItem="Tct-7r-DY2" secondAttribute="trailing" id="kVQ-lo-0nz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kwj-CA-ncU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dna-Jv-NyZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-165" y="747"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="BRR-0T-2y3">
             <objects>
                 <collectionViewController id="3kS-GL-7Nv" customClass="GameViewController" customModule="CodeCamp2021" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" id="5j1-HX-q5v">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" scrollEnabled="NO" dataMode="prototypes" id="5j1-HX-q5v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,8 +111,8 @@
                             <size key="footerReferenceSize" width="50" height="40"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameboardBkg" id="Dhz-QS-wqe">
-                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameboardBkg" id="Dhz-QS-wqe">
+                            <rect key="frame" x="0.0" y="-140" width="414" height="896"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
@@ -193,9 +231,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NrO-sS-Zol" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FSk-7u-PhW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FSk-7u-PhW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.2901960784" green="0.094117647060000004" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -208,11 +247,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nQ8-mD-8ZV"/>
+        <segue reference="lWh-je-e4U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="fourPlayerButton" width="174" height="66"/>
         <image name="gameboardBkg" width="4813" height="10167"/>
+        <image name="howToPlay-1" width="4688" height="10150"/>
         <image name="largeButton" width="55" height="23"/>
         <image name="mediumButton" width="76" height="23"/>
         <image name="navButton1" width="171" height="62"/>
